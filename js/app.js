@@ -2,7 +2,7 @@ const RAD = Math.PI / 180;
 const DEG = 180 / Math.PI;
 
 const TILES = [
-  'red', 'blue', 'green', 'cyan', 'magenta', 'yellow', 'white', 'black'
+  'black', 'cyan', 'magenta', 'yellow'
 ];
 
 class App {
@@ -33,7 +33,11 @@ class App {
   
   generateMap() {
     for (var i = 0; i < this.mapwidth * this.mapheight; i++) {
-      this.map[i] = (Math.random() * TILES.length) >> 0;
+      let c = 0;
+      if (Math.random() > 0.5) {
+        c = (Math.random() * TILES.length) >> 0;
+      }
+      this.map[i] = c;
     }
   }
   
